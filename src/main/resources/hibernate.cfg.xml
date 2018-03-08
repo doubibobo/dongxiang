@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-configuration>
+    <session-factory>
+        <!--Database connection settings-->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/dongxiang</property>
+        <!--SQL dialect-->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="current_session_context_class">thread</property>
+        <property name="show_sql">true</property>
+        <mapping resource="com/dongxiang/dongxiang/domain/AgentFactoryEntity.hbm.xml"/>
+        <mapping class="com.dongxiang.dongxiang.domain.AgentFactoryEntity"/>
+        <mapping resource="com/dongxiang/dongxiang/domain/FactoryManageEntity.hbm.xml"/>
+        <mapping class="com.dongxiang.dongxiang.domain.FactoryManageEntity"/>
+        <mapping resource="com/dongxiang/dongxiang/domain/PermitManageEntity.hbm.xml"/>
+        <mapping class="com.dongxiang.dongxiang.domain.PermitManageEntity"/>
+        <mapping resource="com/dongxiang/dongxiang/domain/RoleUserEntity.hbm.xml"/>
+        <mapping class="com.dongxiang.dongxiang.domain.RoleUserEntity"/>
+        <mapping resource="com/dongxiang/dongxiang/domain/UserManageEntity.hbm.xml"/>
+        <mapping class="com.dongxiang.dongxiang.domain.UserManageEntity"/>
+    </session-factory>
+</hibernate-configuration>

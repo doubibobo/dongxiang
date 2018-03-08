@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dongxiang.dongxiang.domain.UserManageEntity" table="user_manage" schema="dongxiang">
+        <id name="id">
+            <column name="id" sql-type="bigint(20)"/>
+        </id>
+        <property name="gmtCreate">
+            <column name="gmt_create" sql-type="datetime"/>
+        </property>
+        <property name="gmtModified">
+            <column name="gmt_modified" sql-type="datetime"/>
+        </property>
+        <property name="pkUserid">
+            <column name="pk_userid" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="userPwd">
+            <column name="user_pwd" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="userNum">
+            <column name="user_num" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="userPic">
+            <column name="user_pic" sql-type="varchar(40)" length="40"/>
+        </property>
+        <property name="userRealname">
+            <column name="user_realname" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="userLocation">
+            <column name="user_location" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="userTelephone">
+            <column name="user_telephone" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="userRemark">
+            <column name="user_remark" sql-type="text"/>
+        </property>
+        <property name="userFactory">
+            <column name="user_factory" sql-type="bigint(20)"/>
+        </property>
+        <property name="userRole">
+            <column name="user_role" sql-type="bigint(9)"/>
+        </property>
+        <property name="userPermit">
+            <column name="user_permit" sql-type="bigint(20)"/>
+        </property>
+        <property name="isExtended">
+            <column name="is_extended" sql-type="tinyint(4)"/>
+        </property>
+        <property name="isFactory">
+            <column name="is_factory" sql-type="tinyint(1)"/>
+        </property>
+    </class>
+</hibernate-mapping>

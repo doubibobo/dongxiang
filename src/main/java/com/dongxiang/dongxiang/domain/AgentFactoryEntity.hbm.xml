@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dongxiang.dongxiang.domain.AgentFactoryEntity" table="agent_factory" schema="dongxiang">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <property name="gmtCreate">
+            <column name="gmt_create" sql-type="datetime"/>
+        </property>
+        <property name="gmtModified">
+            <column name="gmt_modified" sql-type="datetime"/>
+        </property>
+        <property name="agentRank">
+            <column name="agent_rank" sql-type="tinyint(4)"/>
+        </property>
+        <property name="agentName">
+            <column name="agent_name" sql-type="varchar(40)" length="40"/>
+        </property>
+        <property name="agentArea">
+            <column name="agent_area" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="agentFather">
+            <column name="agent_father" sql-type="int(11)"/>
+        </property>
+    </class>
+</hibernate-mapping>

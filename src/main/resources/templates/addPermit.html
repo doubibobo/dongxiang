@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>添加权限</title>
+</head>
+<body>
+    <div>
+        <form name="form" accept-charset="utf-8"  action="/permit/addPermit" method="post">
+            <ul >
+                <li>
+                    <label for="username"  class="input-tips2">权限ID：</label>
+                    <div class="inputOuter2">
+                        <input type="text" id="username" name="permitId" maxlength="16" />
+                    </div>
+                </li>
+                <li>
+                    <label for="password" class="input-tips2">权限名称：</label>
+                    <div >
+                        <input type="text" id="password"  name="permitName" maxlength="16"/>
+                    </div>
+                </li>
+                <li>
+                    <div >
+                        <input type="submit" value="添加"/>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
+</body>
+</html>

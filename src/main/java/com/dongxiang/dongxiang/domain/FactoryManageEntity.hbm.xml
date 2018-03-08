@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.dongxiang.dongxiang.domain.FactoryManageEntity" table="factory_manage" schema="dongxiang">
+        <id name="id">
+            <column name="id" sql-type="bigint(20)"/>
+        </id>
+        <property name="gmtCreate">
+            <column name="gmt_create" sql-type="datetime"/>
+        </property>
+        <property name="gmtModified">
+            <column name="gmt_modified" sql-type="datetime"/>
+        </property>
+        <property name="pkNumber">
+            <column name="pk_number" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="breadName">
+            <column name="bread_name" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="breadLocation">
+            <column name="bread_location" sql-type="varchar(20)" length="20"/>
+        </property>
+        <property name="createTime">
+            <column name="create_time" sql-type="datetime"/>
+        </property>
+        <property name="responsiblePersonid">
+            <column name="responsible_personid" sql-type="bigint(20)"/>
+        </property>
+        <property name="remark">
+            <column name="remark" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="disnfectP">
+            <column name="disnfect_p" sql-type="varchar(50)" length="50"/>
+        </property>
+        <property name="agent">
+            <column name="agent" sql-type="smallint(6)"/>
+        </property>
+    </class>
+</hibernate-mapping>

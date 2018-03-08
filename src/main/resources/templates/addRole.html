@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>添加角色</title>
+</head>
+<body>
+    <div>
+        <form name="form" accept-charset="utf-8"  action="/role/addRole" method="post">
+            <ul >
+                <li>
+                    <label for="username"  class="input-tips2">角色ID：</label>
+                    <div class="inputOuter2">
+                        <input type="text" id="username" name="pkTypeid" maxlength="16" />
+                    </div>
+                </li>
+                <li>
+                    <label for="password" class="input-tips2">角色名称：</label>
+                    <div >
+                        <input type="text" id="password"  name="typeName" maxlength="16"/>
+                    </div>
+                </li>
+                <li>
+                    <label for="permit" class="input-tips2">默认权限：</label>
+                    <div >
+                        <input type="text" id="permit"  name="defaultPermit" maxlength="16"/>
+                    </div>
+                </li>
+                <li>
+                    <div >
+                        <input type="submit" value="添加"/>
+                    </div>
+                </li>
+            </ul>
+        </form>
+    </div>
+</body>
+</html>
