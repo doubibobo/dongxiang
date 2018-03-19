@@ -1,5 +1,6 @@
 package com.dongxiang.dongxiang.controller;
 
+import com.dongxiang.dongxiang.authorization.annotation.Permit;
 import com.dongxiang.dongxiang.domain.AgentFactoryEntity;
 import com.dongxiang.dongxiang.repository.AgentRepository;
 import com.dongxiang.dongxiang.response.message.Result;
@@ -25,6 +26,7 @@ public class AgentController {
      * 查找所有代理
      * @return
      */
+    @Permit(modules = "dongxiang_factory_administrator", authorities = "select_agent")
     @GetMapping(value = "/lists")
     public List<AgentFactoryEntity> agentLists() {
         return agentRepository.findAll();
@@ -35,6 +37,7 @@ public class AgentController {
      * @param id
      * @return
      */
+    @Permit(modules = "dongxiang_factory_administrator", authorities = "select_agent")
     @GetMapping(value = "/{id:\\d+}")
     public Result findOne(@PathVariable("id") int id) {
         return ResultUtils.success("查询代理成功", 112, agentRepository.findById(id));
@@ -44,6 +47,7 @@ public class AgentController {
      * 删除一个代理
      * @param id
      */
+    @Permit(modules = "dongxiang_factory_administrator", authorities = "delete_agent")
     @DeleteMapping(value = "/{id:\\d+}")
     public void deleteOne(@PathVariable("id") Long id) {
         agentRepository.delete(id);
@@ -55,6 +59,7 @@ public class AgentController {
      * @param bindingResult
      * @return
      */
+    @Permit(modules = "dongxiang_factory_administrator", authorities = "create_agent")
     @PostMapping(value = "/")
     public Result addOne(@Valid AgentFactoryEntity agentFactoryEntity, BindingResult bindingResult) {
         if (bindingResult.hasErrors())  {
@@ -78,6 +83,7 @@ public class AgentController {
      * @param id 代理主键
      * @return
      */
+    @Permit(modules = "dongxiang_factory_administrator", authorities = "update_agent")
     @PutMapping("/{id:\\d+}")
     public Result agentUpdate(@Valid AgentFactoryEntity agentFactoryEntity, @PathVariable("id") int id,  BindingResult bindingResult) {
         if (bindingResult.hasErrors())  {

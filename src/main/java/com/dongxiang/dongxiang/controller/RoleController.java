@@ -1,6 +1,7 @@
 package com.dongxiang.dongxiang.controller;
 
 //import com.dongxiang.dongxiang.WebSecurityConfig;
+import com.dongxiang.dongxiang.authorization.annotation.Permit;
 import com.dongxiang.dongxiang.domain.RoleUserEntity;
 import com.dongxiang.dongxiang.repository.RoleRepository;
 import com.dongxiang.dongxiang.response.message.Result;
@@ -30,6 +31,7 @@ public class RoleController {
      * 查看所有的角色
      * @return json数据返回所有角色
      */
+    @Permit(modules = "role")
     @GetMapping(value = "lists")
     @ResponseBody
     public List<RoleUserEntity> roleLists(@PageableDefault(page = 0, size = 10, sort = "id, desc")Pageable pageable) {
@@ -41,6 +43,7 @@ public class RoleController {
      * 角色管理
      * @return
      */
+    @Permit(modules = "role")
     @GetMapping("role")
     public ModelAndView showAddRole() {
         List<RoleUserEntity> roleUserEntities = roleRepository.findAll();
@@ -57,6 +60,7 @@ public class RoleController {
      * @param bindingResult
      * @return
      */
+    @Permit(modules = "role")
     @PostMapping(value = "")
     public Result addRole(@Valid RoleUserEntity roleUserEntity, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -80,6 +84,7 @@ public class RoleController {
      * @param id 主键
      * @return
      */
+    @Permit(modules = "role")
     @GetMapping(value = "/{id:\\d+}")
     public Result findRole(@PathVariable("id")Long id) {
         return ResultUtils.success("单个角色", 198, roleRepository.findOne(id));
@@ -89,6 +94,7 @@ public class RoleController {
      * 删除一个角色
      * @param id
      */
+    @Permit(modules = "role")
     @DeleteMapping(value = "/{id:\\d+}")
     public void deleteRole(@PathVariable("id")Long id) {
         roleRepository.delete(id);
@@ -102,6 +108,7 @@ public class RoleController {
      * @param defaultPermit
      * @return
      */
+    @Permit(modules = "role")
     @PutMapping(value = "/{id:\\d+}")
     public Result roleUpdate(
             @PathVariable("id")Long id,

@@ -10,8 +10,8 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "user_manage", schema = "dongxiang", catalog = "")
 public class UserManageEntity {
-        private long id;;
-        private Timestamp gmtCreate;;
+    private long id;
+    private Timestamp gmtCreate;
     private Timestamp gmtModified;
     private String pkUserid;
     private String userPwd;

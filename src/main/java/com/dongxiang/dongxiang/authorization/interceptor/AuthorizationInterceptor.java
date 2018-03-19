@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
 /**
- * 权限识别拦截器, 判断用户的登录信息
+ * 登录识别拦截器, 判断用户的登录信息
  */
 @Component
 public class AuthorizationInterceptor extends HandlerInterceptorAdapter {

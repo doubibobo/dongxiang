@@ -1,5 +1,6 @@
 package com.dongxiang.dongxiang.controller;
 
+import com.dongxiang.dongxiang.authorization.annotation.Permit;
 import com.dongxiang.dongxiang.domain.UserManageEntity;
 import com.dongxiang.dongxiang.response.message.Result;
 import com.dongxiang.dongxiang.repository.UserRepository;
@@ -27,6 +28,7 @@ public class UserController {
      * 查找所有的用户列表
      * @return 返回所有的用户信息
      */
+    @Permit(modules = "user")
     @GetMapping(value = "/userList")
     @JsonView(UserManageEntity.UserSimpleView.class)
     public List<UserManageEntity> userList() {
@@ -38,6 +40,7 @@ public class UserController {
      * @param id 获取用户的信息
      * @return
      */
+    @Permit(modules = "user")
     @GetMapping(value = "/{id:\\d+}")
 //    @JsonView(UserManageEntity.UserDetailView.class)
     public Result findOne(@PathVariable("id")Long id) {
@@ -50,6 +53,7 @@ public class UserController {
      * @param bindingResult
      * @return 返回相应的状态码
      */
+    @Permit(modules = "user")
     @PostMapping(value = "")
     public Result addStudent(@Valid UserManageEntity userManageEntity, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -84,6 +88,7 @@ public class UserController {
      * @param bindingResult
      * @return
      */
+    @Permit(modules = "user")
     @PutMapping(value = "/{id:\\d+}")
     public Result modifyUser(@Valid @RequestBody UserManageEntity userManageEntity, @PathVariable("id") Long id,  BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -118,6 +123,7 @@ public class UserController {
      * @param id 用户的主键
      * @return 返回相应的状态码
      */
+    @Permit(modules = "user")
     @RequestMapping(value = "/{id:\\d+}")
     public void deleteStudent(@PathVariable("id") long id) {
         userRepository.delete(id);

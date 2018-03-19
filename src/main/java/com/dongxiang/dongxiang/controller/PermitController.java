@@ -1,5 +1,6 @@
 package com.dongxiang.dongxiang.controller;
 
+import com.dongxiang.dongxiang.authorization.annotation.Permit;
 import com.dongxiang.dongxiang.domain.PermitManageEntity;
 import com.dongxiang.dongxiang.repository.PermitRepository;
 import com.dongxiang.dongxiang.response.message.Result;
@@ -29,6 +30,7 @@ public class PermitController {
      * 权限管理
      * @return
      */
+    @Permit(modules = "permit")
     @GetMapping(value = "/permit/permit")
     public ModelAndView showAddPermit() {
         List<PermitManageEntity> permitManageEntities = permitRepository.findAll();
@@ -43,6 +45,7 @@ public class PermitController {
      * 展示所有的权限,不更新新的页面
      * @return 展示所有权限的json格式
      */
+    @Permit(modules = "permit")
     @GetMapping(value = "/permit/permitLists")
     @ResponseBody
     @JsonView(PermitManageEntity.PermitSimpleView.class)
@@ -57,6 +60,7 @@ public class PermitController {
      * @param bindingResult
      * @return
      */
+    @Permit(modules = "permit")
     @PostMapping(value = "/permit/addPermit")
     public Result addRole(@Valid PermitManageEntity permitManageEntity, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {

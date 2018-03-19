@@ -22,5 +22,4 @@ public interface UserRepository extends CrudRepository<UserManageEntity, Long>{
      * @return
      */
     public UserManageEntity findByUserFactory(String userFactory);
-
 }

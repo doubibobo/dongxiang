@@ -2,7 +2,6 @@ package com.dongxiang.dongxiang.service;
 
 import com.dongxiang.dongxiang.domain.AgentFactoryEntity;
 import com.dongxiang.dongxiang.domain.FactoryManageEntity;
-import com.dongxiang.dongxiang.domain.PermitManageEntity;
 import com.dongxiang.dongxiang.domain.UserManageEntity;
 import com.dongxiang.dongxiang.repository.AgentRepository;
 import com.dongxiang.dongxiang.repository.FactoryRepository;
@@ -117,6 +116,11 @@ public class UserService {
         return user.size()>0;
     }
 
+    /**
+     * 根据用户的ID获取用户返回到前端可见的权限, 登录之后的信息
+     * @param id 用户的ID
+     * @return
+     */
     public UserLogin findOneUser(long id) {
         UserManageEntity userManageEntity = userRepository.findOne(id);
         UserLogin userLogin = new UserLogin();
@@ -164,5 +168,21 @@ public class UserService {
         }
         userLogin.setUserFactory(mapperFactory);
         return userLogin;
+    }
+
+    /**
+     * 返回用户的角色和权限信息
+     * @param id
+     * @return
+     */
+    public RoleAndPermit findRoleByUserID(long id) {
+        RoleAndPermit roleAndPermit = new RoleAndPermit();
+        UserManageEntity userManageEntity = userRepository.findOne(id);
+
+        roleAndPermit.setRole(userManageEntity.getUserRole());
+        roleAndPermit.setExtended(userManageEntity.getIsExtended());
+        roleAndPermit.setExtendedPermit(userManageEntity.getUserPermit());
+
+        return roleAndPermit;
     }
 }
